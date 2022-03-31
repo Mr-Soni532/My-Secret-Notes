@@ -1,0 +1,21 @@
+.navigation-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.navigation-pannel{
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+}
+.notes-pannel{
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(70deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(0,212,255,0.7094188017003676) 25%, rgba(28,195,178,0.6533963927367823) 97%);
+}

@@ -1,0 +1,20 @@
+.boxArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./wallpaperflare.com_wallpaper\ \(5\).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.outerPallet{
+    width: 300px;
+    padding: 20px 30px;
+    background: rgba( 255, 255, 255, 0.050 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.08 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+}
