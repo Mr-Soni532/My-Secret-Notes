@@ -1,0 +1,63 @@
+.mainContainer {
+    width: 100%;
+    height: 100vh;
+    background: rgb(245, 239, 239);
+}
+
+.rightPannel {
+    height: 100%;
+    width: 100%;
+    background-image: url(./doodle.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.leftPannel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    background-image: url(./milad-fakurian-PGdW_bHDbpI-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 10px 20px ;
+    width: 400px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.formStyle{
+    width: 100%;
+}
+.showNote{
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #424242;
+    color: #fff;
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 300ms;
+}
+.showNote:hover{
+    color: #424242;
+    background: #fff;
+    transform: scale(1.2);
+}

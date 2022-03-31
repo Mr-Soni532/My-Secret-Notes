@@ -2,6 +2,7 @@ import React from 'react'
 import SignupStyles from './signup.module.css'
 import useStyles from '../../config/Style'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined';
 import {
@@ -132,6 +133,16 @@ const SignupForm = ({credentials, setCredentials}) => {
 						className={classes.login_btn}>
 						Sign up
 					</Button>
+
+					<Typography color='primary' align='center' className=''>
+                        Already have an account?
+                    </Typography>
+
+                    <Typography color='primary' align='center' >
+                        <Link to='/login' className={classes.signup_link}>
+                            Login here
+                        </Link>
+                    </Typography>
 				</form>
 			</div>
 		</Box>

@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
+  background: rgb(255, 255, 256);
+  /* background-image: linear-gradient( 179.4deg,  rgba(12,20,69,1) -16.9%, rgba(71,30,84,1) 119.9% );
+  background-repeat: no-repeat; */
 }
 
 code {
