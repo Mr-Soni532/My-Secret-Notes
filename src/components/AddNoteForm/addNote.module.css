@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     background: rgb(245, 239, 239);
+    overflow: hidden;
 }
 
 .rightPannel {
@@ -18,6 +19,7 @@
     width: 100%;
     background: #fff;
     background-image: url(./milad-fakurian-PGdW_bHDbpI-unsplash.jpg);
+    /* background-image:  radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% ); */
     background-position: center;
     background-size: cover;
     display: flex;
@@ -41,10 +43,10 @@
 .formStyle{
     width: 100%;
 }
-.showNote{
+.exitPage{
     position: absolute;
     right: 50px;
-    bottom: 50px;
+    bottom: 120px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -56,8 +58,8 @@
     align-items: center;
     transition-duration: 300ms;
 }
-.showNote:hover{
+.exitPage:hover{
     color: #424242;
     background: #fff;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }

@@ -2,22 +2,48 @@ import React from 'react'
 import LoginStyles from './login.module.css'
 import { Box, Button, TextField, Typography } from '@material-ui/core'
 import useStyles from '../../config/Style'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import svg from '../../logo-light.svg'
 const LoginForm = ({ credentials, setCredentials }) => {
+    const navigate = useNavigate();
     const classes = useStyles();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        //! Api call for login  
+        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token')
+            },
+            body: JSON.stringify({ email: credentials.email, password: credentials.password })
+        });
+        const json = await response.json()
+        if (json.success) {
+            localStorage.setItem('token', json.authToken);
+            navigate('/');
+            // showAlert('Logged in Successfully', 'success');
+
+        } else { console.log('error') }
+    }
 
     const onchange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
+
     return (
         <Box className={LoginStyles.boxArea}>
             <div className={LoginStyles.outerPallet}>
-                <Typography variant='h4' color='primary' align='center' >
+                <Box style={{marginBottom: '5px'}}>
+                    <img src={svg} alt="" />
+                </Box>
+                <Typography variant='h5' color='primary' align='center' >
                     Login
                 </Typography>
 
-                <form noValidate autoComplete="off" >
+                <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                     <TextField
                         inputProps={{ className: classes.input }}
                         InputLabelProps={{ className: classes.input }}

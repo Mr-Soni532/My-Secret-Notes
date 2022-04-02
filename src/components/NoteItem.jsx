@@ -1,37 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, CardHeader, Avatar, IconButton, CardContent, Typography } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditIcon from '@material-ui/icons/Edit';
 import useStyles from '../config/Style';
-const NoteItem = () => {
-  const classes = useStyles();
+import NoteContext from '../context/notes/NoteContext';
+const NoteItem = ({note, updateNote}) => {
+  const classes = useStyles(note);
+  const context = useContext(NoteContext);
+  const { deleteNote } = context
   return (
     <>
       <Card >
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe" className={classes.Avatar}>
-              R
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              {note.tag[0]}
             </Avatar>
           }
           action={
             <div>
-              <IconButton onClick={() => { }}>
+              <IconButton onClick={() => { updateNote(note)}}>
                 <EditIcon />
               </IconButton>
-              <IconButton onClick={() => { }}>
+              <IconButton onClick={() => {deleteNote(note._id)}}>
                 <DeleteOutlineIcon />
               </IconButton>
             </div>
           }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
-
+          title={note.title}
+          subheader={note.tag}
         />
 
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic asperiores neque maiores corrupti modi ipsum voluptatem. Commodi facilis magnam in placeat dolorem sit accusantium, nam omnis ea, quibusdam fugiat, dolorum perferendis labore.
+          {note.description}
           </Typography>
         </CardContent>
       </Card>

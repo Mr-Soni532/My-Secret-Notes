@@ -1,5 +1,5 @@
 import NoteContext from "./NoteContext";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const NoteState = ({ children }) => {
     const host = "http://localhost:5000"
@@ -7,8 +7,8 @@ const NoteState = ({ children }) => {
 
     //! ------| Get all Note | 
 
-    const getNotes = async () => {
-        //API call
+    const getNotes =  async () => {
+        // API call
         const response = await fetch(`${host}/api/note/fetchnotes`, {
             method: 'GET',
             headers: {

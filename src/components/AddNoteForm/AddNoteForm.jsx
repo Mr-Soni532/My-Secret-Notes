@@ -1,10 +1,19 @@
 import { Box, Button, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Link } from "react-router-dom"
 import styles from './addNote.module.css'
 import { TextField } from '@material-ui/core'
 import useStyles from '../../config/Style'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import NoteContext from '../../context/notes/NoteContext'
+import { useNavigate } from 'react-router-dom'
+import { ExitToAppOutlined } from '@material-ui/icons'
+
 const AddNoteForm = () => {
+    const classes = useStyles(note);
+    const navigate = useNavigate();
+    //! ----| Fetching Context |
+    const context = useContext(NoteContext);
+    const { addNote } = context
 
     //! ----| UseState for Note|
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
@@ -12,26 +21,24 @@ const AddNoteForm = () => {
     //! ----| |
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('yes')
-        // addNote(note.title, note.description, note.tag)
-
+        addNote(note.title, note.description, note.tag)
+        navigate('/')
     }
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
     console.log(note)
-    const classes = useStyles();
 
     // Tag optio object
     const tagList = [
-        { value: null},
+        { value: null },
         { value: 'ToDo' },
         { value: 'Work' },
         { value: 'Love' },
         { value: 'Money' },
         { value: 'Personal' },
         { value: 'Shopping' },
-        { value: 'Other' }
+        { value: 'Reminder' }
     ]
 
     return (
@@ -40,7 +47,7 @@ const AddNoteForm = () => {
                 <form action="" className={classes.formStyle} autoComplete="off" onSubmit={handleSubmit}>
                     <Typography
                         align='center'
-                        variant='h3'
+                        variant='h4'
                         color="secondary"
 
                     >
@@ -111,9 +118,9 @@ const AddNoteForm = () => {
                     </Button>
                 </form>
             </Box>
-            <div className={styles.showNote}>
-                <ExitToAppIcon fontSize='inherit' />
-            </div>
+            <Link to='/' className={styles.exitPage}>
+                <ExitToAppOutlined fontSize='inherit' />
+            </Link>
         </>
     )
 }
