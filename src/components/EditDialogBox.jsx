@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core'
 import NoteContext from '../context/notes/NoteContext';
-const EditDialogBox = ({ showDialoag, setShowDialog, note, setNote }) => {
+const EditDialogBox = ({ showDialoag, setShowDialog, note, setNote, showAlert }) => {
 
     //!   fetching context
     const context = useContext(NoteContext);
@@ -13,7 +13,7 @@ const EditDialogBox = ({ showDialoag, setShowDialog, note, setNote }) => {
         e.preventDefault();
         editNote(note.id, note.editTitle, note.editDescription, note.editTag)
         setShowDialog(false);
-        // showAlert('Updated successfully', 'success')
+        showAlert('Updated successfully', 'success')
     }
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })

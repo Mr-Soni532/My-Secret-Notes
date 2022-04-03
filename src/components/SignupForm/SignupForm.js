@@ -18,7 +18,7 @@ import {
 	InputAdornment,
 } from '@material-ui/core'
 
-const SignupForm = ({ credentials, setCredentials }) => {
+const SignupForm = ({ credentials, setCredentials, showAlert }) => {
 	const navigate = useNavigate();
 	const classes = useStyles()
 
@@ -39,8 +39,8 @@ const SignupForm = ({ credentials, setCredentials }) => {
 		if (json.success) {
 			localStorage.setItem('token', json.authToken)
 			navigate('/')
-			// showAlert('Account Created Successfully', 'success')
-		} else {/* {showAlert('Input valid details', 'warning')}*/ console.log('error') }
+			showAlert('Account Created Successfully', 'success')
+		}
 	}
 
 	//!  React-Hook-Form

@@ -4,10 +4,15 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import EditIcon from '@material-ui/icons/Edit';
 import useStyles from '../config/Style';
 import NoteContext from '../context/notes/NoteContext';
-const NoteItem = ({note, updateNote}) => {
+const NoteItem = ({note, updateNote, showAlert}) => {
   const classes = useStyles(note);
   const context = useContext(NoteContext);
   const { deleteNote } = context
+
+  const handleDelete = ()=>{
+    deleteNote(note._id)
+    showAlert('Your Note is deleted!','success')
+  }
   return (
     <>
       <Card >
@@ -22,7 +27,7 @@ const NoteItem = ({note, updateNote}) => {
               <IconButton onClick={() => { updateNote(note)}}>
                 <EditIcon />
               </IconButton>
-              <IconButton onClick={() => {deleteNote(note._id)}}>
+              <IconButton onClick={handleDelete}>
                 <DeleteOutlineIcon />
               </IconButton>
             </div>

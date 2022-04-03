@@ -1,9 +1,9 @@
 import React from 'react'
 import AddNoteLayout from '../components/AddNoteForm/AddNoteLayout'
 
-const AddNote = () => {
+const AddNote = ({ showAlert}) => {
   return (
-    <AddNoteLayout/>
+    <AddNoteLayout showAlert={showAlert} />
   )
 }
 

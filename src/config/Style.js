@@ -93,13 +93,15 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     notes: {
-        height: '100vh',
-        overflowY: 'scroll',
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        // overflowY: 'scroll',
         backgroundImage: '  radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% )',
         padding: 0,
     },
     createNoteButton: {
-        position: 'absolute',
+        position: 'fixed',
         right: '40px',
         bottom: '50px',
         width: '70px', 
@@ -123,7 +125,11 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         top: '50px'
     },
-
+    alert: {
+        width: '100%',
+        position:'fixed',
+        zIndex: 101
+    },
 
 }))
 

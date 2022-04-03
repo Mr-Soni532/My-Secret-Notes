@@ -4,7 +4,7 @@ import { Box, Button, TextField, Typography } from '@material-ui/core'
 import useStyles from '../../config/Style'
 import { Link, useNavigate } from 'react-router-dom'
 import svg from '../../logo-light.svg'
-const LoginForm = ({ credentials, setCredentials }) => {
+const LoginForm = ({ credentials, setCredentials, showAlert }) => {
     const navigate = useNavigate();
     const classes = useStyles();
 
@@ -24,9 +24,10 @@ const LoginForm = ({ credentials, setCredentials }) => {
         if (json.success) {
             localStorage.setItem('token', json.authToken);
             navigate('/');
-            // showAlert('Logged in Successfully', 'success');
-
-        } else { console.log('error') }
+            showAlert('Logged in Successfully', 'success');
+        } else { 
+            showAlert('Invalid Credentials!', 'error')
+         }
     }
 
     const onchange = (e) => {
@@ -35,6 +36,7 @@ const LoginForm = ({ credentials, setCredentials }) => {
 
     return (
         <Box className={LoginStyles.boxArea}>
+       
             <div className={LoginStyles.outerPallet}>
                 <Box style={{marginBottom: '5px'}}>
                     <img src={svg} alt="" />

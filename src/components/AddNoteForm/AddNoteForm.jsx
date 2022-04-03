@@ -8,21 +8,24 @@ import NoteContext from '../../context/notes/NoteContext'
 import { useNavigate } from 'react-router-dom'
 import { ExitToAppOutlined } from '@material-ui/icons'
 
-const AddNoteForm = () => {
+const AddNoteForm = ({showAlert}) => {
+    //! ----| UseState for Note|
+    const [note, setNote] = useState({ title: "", description: "", tag: "" })
+
     const classes = useStyles(note);
     const navigate = useNavigate();
+    
     //! ----| Fetching Context |
     const context = useContext(NoteContext);
     const { addNote } = context
 
-    //! ----| UseState for Note|
-    const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     //! ----| |
     const handleSubmit = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag)
         navigate('/')
+        showAlert('Your Secret Note Added Successfully!', 'success')
     }
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })

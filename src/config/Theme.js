@@ -12,7 +12,7 @@ let theme = createTheme({
             main:'#424242',
             light: "#ff0000",
             dark: "#ffffff",
-            
+            contrastText: '#000000'
         }
     },
         typography: {

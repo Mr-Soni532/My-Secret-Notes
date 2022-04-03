@@ -1,15 +1,20 @@
 
 import React from 'react'
 import styles from './navBar.module.css'
-import Clock from 'react-live-clock';
 import svg from '../../logo-light.svg'
-import { Box } from '@material-ui/core'
+import { Box, Button } from '@material-ui/core'
 import useStyles from '../../config/Style';
 import { format } from 'date-fns';
 import DateRangeRoundedIcon from '@material-ui/icons/DateRangeRounded';
-import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
+  const navigate = useNavigate();
+  const handleLogout = ()=>{
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
+
   const classes = useStyles();
   return (
     <>
@@ -28,14 +33,9 @@ const Navigation = () => {
           <img src={svg} alt="" className={styles.img} />
         </Box>
         <Box className={styles.column3}>
-          <div className={styles.clockIcon}>
-            <QueryBuilderRoundedIcon />
-          </div>
-          <div className={styles.clockTimer}>
-            <div className={classes.clock}>
-              {<Clock format={'h:mm:ss'} ticking={true} />}
-            </div>
-          </div>
+          <Button variant="contained" onClick={handleLogout} >
+            Logout
+          </Button>
         </Box>
       </Box>
 

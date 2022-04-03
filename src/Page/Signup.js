@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import AlertDialog from '../components/AlertDialog'
 import SignupForm from '../components/SignupForm/SignupForm'
 
 
-const Signup = () => {
-  
+const Signup = ({alert, showAlert}) => {
+
   const [credentials, setCredentials] = useState({
     name: '',
     email: '',
@@ -11,9 +12,12 @@ const Signup = () => {
     cPassword: '',
     showPassword: false
   })
-console.log(credentials)
+  console.log(credentials)
   return (
-    <SignupForm credentials={credentials} setCredentials={setCredentials}/>
+    <>
+      <AlertDialog alert={alert}/>
+      <SignupForm credentials={credentials} setCredentials={setCredentials} showAlert={showAlert}/>
+    </>
   )
 }
 
