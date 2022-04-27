@@ -2,7 +2,7 @@ import NoteContext from "./NoteContext";
 import React, { useState } from "react";
 
 const NoteState = ({ children }) => {
-    const host = "http://localhost:5000"
+    const host = "https://mysecretenotebackend.herokuapp.com"
     const [userNotes, setNotes] = useState([])
 
     //! ------| Get all Note | 

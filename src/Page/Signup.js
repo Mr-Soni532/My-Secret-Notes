@@ -12,7 +12,6 @@ const Signup = ({alert, showAlert}) => {
     cPassword: '',
     showPassword: false
   })
-  console.log(credentials)
   return (
     <>
       <AlertDialog alert={alert}/>

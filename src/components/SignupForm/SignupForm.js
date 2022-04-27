@@ -26,7 +26,7 @@ const SignupForm = ({ credentials, setCredentials, showAlert }) => {
 	const onSubmit = async (data) => {
 
 		//! Api call to backend for create user
-		const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+		const response = await fetch(`https://mysecretenotebackend.herokuapp.com/api/auth/createuser`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

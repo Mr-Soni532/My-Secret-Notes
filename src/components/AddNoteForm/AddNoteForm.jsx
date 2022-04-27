@@ -30,7 +30,7 @@ const AddNoteForm = ({showAlert}) => {
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-    console.log(note)
+    
 
     // Tag optio object
     const tagList = [

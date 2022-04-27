@@ -47,7 +47,7 @@ const Notes = ({ alert, showAlert }) => {
     1100: 2,
     700: 1,
   }
-  console.log(userNotes.length)
+
 
   return (
     <>

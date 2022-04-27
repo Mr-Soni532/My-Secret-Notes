@@ -10,9 +10,10 @@ const LoginForm = ({ credentials, setCredentials, showAlert }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+   
 
         //! Api call for login  
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`https://mysecretenotebackend.herokuapp.com/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
