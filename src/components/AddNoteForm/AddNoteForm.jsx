@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@material-ui/core'
+import { Box, Button, Typography, useMediaQuery } from '@material-ui/core'
 import React, { useContext, useState } from 'react'
 import { Link } from "react-router-dom"
 import styles from './addNote.module.css'
@@ -8,13 +8,13 @@ import NoteContext from '../../context/notes/NoteContext'
 import { useNavigate } from 'react-router-dom'
 import { ExitToAppOutlined } from '@material-ui/icons'
 
-const AddNoteForm = ({showAlert}) => {
+const AddNoteForm = ({ showAlert }) => {
     //! ----| UseState for Note|
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     const classes = useStyles(note);
     const navigate = useNavigate();
-    
+
     //! ----| Fetching Context |
     const context = useContext(NoteContext);
     const { addNote } = context
@@ -30,7 +30,7 @@ const AddNoteForm = ({showAlert}) => {
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-    
+
 
     // Tag optio object
     const tagList = [
@@ -43,6 +43,8 @@ const AddNoteForm = ({showAlert}) => {
         { value: 'Shopping' },
         { value: 'Reminder' }
     ]
+
+    const rowsSize = useMediaQuery('(max-width:480px)') ? 8 : 6;
 
     return (
         <>
@@ -105,7 +107,8 @@ const AddNoteForm = ({showAlert}) => {
                         margin="normal"
                         variant="outlined"
                         multiline
-                        rows={6}
+                        rows={rowsSize}
+                        // inputProps={media}
                         color='secondary'
                         required
 

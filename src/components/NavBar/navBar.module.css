@@ -12,8 +12,6 @@
 .column1, .column2, .column3 {
     width: 33.33%;
     padding: 20px;
-    
-
 }
 .column1{
     display: flex;
@@ -58,4 +56,24 @@
 }
 .dateIcon{
   flex: 0 0 9%
+}
+
+
+/* !-------------| Media Query |------------------ */
+
+@media screen and (max-width: 480px) {
+  .column1 {
+    display: none;
+    flex: 0 0 0% ;
+  }
+  .column2{
+    flex: 0 0 50%;
+    justify-content: flex-start;
+  }
+  .column3{
+    flex: 0 0 30%;
+  }
+  .img{
+    width: 100%;
+  }
 }

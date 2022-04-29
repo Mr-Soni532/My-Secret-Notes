@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     },
     //! Pending
     avatar: {
-        backgroundColor: ( note ) => {
+        backgroundColor: (note) => {
             switch (note.tag) {
                 case "ToDo": return red[900]
                 case "Work": return blue[800]
@@ -87,8 +87,7 @@ const useStyles = makeStyles((theme) => ({
                 case "Personal": return cyan[600]
                 case "Shopping": return purple[800]
                 case "Reminder": return yellow[700]
-                default:
-                    break;
+                default: break;
             }
         }
     },
@@ -104,8 +103,8 @@ const useStyles = makeStyles((theme) => ({
         position: 'fixed',
         right: '40px',
         bottom: '50px',
-        width: '70px', 
-        height: '70px', 
+        width: '70px',
+        height: '70px',
         borderRadius: '50%',
         backgroundColor: '#000000',
         color: "#ffffff",
@@ -114,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         transitionDuration: '300ms',
-        '&:hover' : {
+        '&:hover': {
             color: '#424242',
             background: '#38b6ff',
             transform: 'scale(1.1)'
@@ -127,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
     },
     alert: {
         width: '100%',
-        position:'fixed',
+        position: 'fixed',
         zIndex: 101
     },
 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import NoteItem from '../components/NoteItem'
 import useStyles from '../config/Style'
-import { Container, Tooltip } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import Navigation from '../components/NavBar/Navigation'
 import NoteContext from '../context/notes/NoteContext'
 import { useNavigate } from 'react-router-dom'

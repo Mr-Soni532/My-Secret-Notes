@@ -19,6 +19,8 @@ export default function App() {
         <Route path="/login" element={<Login showAlert={showAlert} alert={alert} />} />
         <Route path="/signup" element={<Signup showAlert={showAlert} alert={alert} />} />
       </Routes>
+    
     </>
   )
 }
+

@@ -38,7 +38,6 @@ const Navigation = () => {
           </Button>
         </Box>
       </Box>
-
     </>
   )
 }
