@@ -1,12 +1,12 @@
 import { Box, Button, Typography, useMediaQuery } from '@material-ui/core'
 import React, { useContext, useState } from 'react'
-import { Link } from "react-router-dom"
 import styles from './addNote.module.css'
 import { TextField } from '@material-ui/core'
 import useStyles from '../../config/Style'
 import NoteContext from '../../context/notes/NoteContext'
 import { useNavigate } from 'react-router-dom'
-import { ExitToAppOutlined } from '@material-ui/icons'
+// import { Link } from "react-router-dom"
+// import { ExitToAppOutlined } from '@material-ui/icons'
 
 const AddNoteForm = ({ showAlert }) => {
     //! ----| UseState for Note|
@@ -44,7 +44,7 @@ const AddNoteForm = ({ showAlert }) => {
         { value: 'Reminder' }
     ]
 
-    const rowsSize = useMediaQuery('(max-width:480px)') ? 8 : 6;
+    const rowsSize = useMediaQuery('(max-width:480px)') ? 10 : 6;
 
     return (
         <>
@@ -124,9 +124,9 @@ const AddNoteForm = ({ showAlert }) => {
                     </Button>
                 </form>
             </Box>
-            <Link to='/' className={styles.exitPage}>
-                <ExitToAppOutlined fontSize='inherit' />
-            </Link>
+            {/* <Link to='/' className={styles.exitPage}>
+            <ExitToAppOutlined fontSize='inherit' />
+          </Link> */}
         </>
     )
 }
