@@ -19,7 +19,6 @@ const AddNoteForm = ({ showAlert }) => {
     const context = useContext(NoteContext);
     const { addNote } = context
 
-
     //! ----| |
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +29,6 @@ const AddNoteForm = ({ showAlert }) => {
     const onChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-
 
     // Tag optio object
     const tagList = [

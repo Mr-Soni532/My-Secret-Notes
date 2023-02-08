@@ -17,16 +17,17 @@ import {
 	Input,
 	InputAdornment,
 } from '@material-ui/core'
-
+require('dotenv').config()
 const SignupForm = ({ credentials, setCredentials, showAlert }) => {
 	const navigate = useNavigate();
 	const classes = useStyles()
-
+	const HOST = process.env.REACT_APP_HOST;
+    // const HOST = "https://nice-jade-worm-fez.cyclic.app";
 	//! On submit
 	const onSubmit = async (data) => {
 
 		//! Api call to backend for create user
-		const response = await fetch(`https://mysecretenotebackend.herokuapp.com/api/auth/createuser`, {
+		const response = await fetch(`${HOST}/api/auth/createuser`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

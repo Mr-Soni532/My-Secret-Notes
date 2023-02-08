@@ -1,15 +1,16 @@
 import NoteContext from "./NoteContext";
 import React, { useState } from "react";
-
+require('dotenv').config()
 const NoteState = ({ children }) => {
-    const host = "https://mysecretenotebackend.herokuapp.com"
+    const HOST = process.env.REACT_APP_HOST;
+    // const HOST = "https://nice-jade-worm-fez.cyclic.app";
     const [userNotes, setNotes] = useState([])
 
     //! ------| Get all Note | 
 
     const getNotes =  async () => {
         // API call
-        const response = await fetch(`${host}/api/note/fetchnotes`, {
+        const response = await fetch(`${HOST}/api/note/fetchnotes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +25,7 @@ const NoteState = ({ children }) => {
 
     const addNote = async (title, description, tag) => {
         // Backend Logic 
-        const response = await fetch(`${host}/api/note/addnote`, {
+        const response = await fetch(`${HOST}/api/note/addnote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +43,7 @@ const NoteState = ({ children }) => {
     const deleteNote = async (id) => {
 
          // Backend Logic 
-         await fetch(`${host}/api/note/deletenote/${id}`, {
+         await fetch(`${HOST}/api/note/deletenote/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +60,7 @@ const NoteState = ({ children }) => {
     const editNote = async (id, title, description, tag) => {
 
         //  Backend Logic
-         await fetch(`${host}/api/note/updatenote/${id}`, {
+         await fetch(`${HOST}/api/note/updatenote/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

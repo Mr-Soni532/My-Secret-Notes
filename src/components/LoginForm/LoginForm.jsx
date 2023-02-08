@@ -4,16 +4,15 @@ import { Box, Button, TextField, Typography } from '@material-ui/core'
 import useStyles from '../../config/Style'
 import { Link, useNavigate } from 'react-router-dom'
 import svg from '../../logo-light.svg'
+require('dotenv').config();
 const LoginForm = ({ credentials, setCredentials, showAlert }) => {
     const navigate = useNavigate();
     const classes = useStyles();
-
+    const HOST = process.env.REACT_APP_HOST;
     const handleSubmit = async (e) => {
         e.preventDefault();
-   
-
         //! Api call for login  
-        const response = await fetch(`https://mysecretenotebackend.herokuapp.com/api/auth/login`, {
+        const response = await fetch(`${HOST}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
